@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ミニゲーム - 敵を避けてゴールへ</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>ミニゲーム</h1>
+        <div class="difficulty-info">
+            <span>難易度: </span>
+            <span id="difficultyLevel">1</span>
+            <span class="high-score"> | ハイスコア: </span>
+            <span id="highScore">0</span>
+        </div>
+        <div class="game-area" id="gameArea">
+            <!-- 安全地帯 -->
+            <div class="safe-zone" id="safeZone"></div>
+            <!-- プレイヤー -->
+            <div class="player" id="player"></div>
+            <!-- 敵は動的に生成されます -->
+            <!-- ゴール -->
+            <div class="goal" id="goal"></div>
+        </div>
+        <div class="status" id="status">矢印キーで移動してください</div>
+        <button class="reset-button" id="resetButton">リセット</button>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
+

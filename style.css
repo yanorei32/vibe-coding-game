@@ -1,0 +1,180 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #333;
+}
+
+.game-container {
+    text-align: center;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+    margin-bottom: 10px;
+    color: #667eea;
+    font-size: 2em;
+}
+
+.difficulty-info {
+    margin-bottom: 15px;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #667eea;
+}
+
+#difficultyLevel {
+    color: #f44336;
+    font-size: 1.3em;
+}
+
+.high-score {
+    margin-left: 15px;
+    color: #667eea;
+}
+
+#highScore {
+    color: #FFD700;
+    font-size: 1.3em;
+    font-weight: bold;
+}
+
+.game-area {
+    position: relative;
+    width: 600px;
+    height: 400px;
+    background: #f0f0f0;
+    border: 3px solid #333;
+    border-radius: 10px;
+    margin: 20px auto;
+    overflow: hidden;
+}
+
+/* 安全地帯 */
+.safe-zone {
+    position: absolute;
+    background: rgba(76, 175, 80, 0.15);
+    border: 2px dashed rgba(76, 175, 80, 0.5);
+    border-radius: 5px;
+    z-index: 1;
+    pointer-events: none; /* クリックイベントを無効化 */
+}
+
+/* プレイヤー */
+.player {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: #4CAF50;
+    border: 2px solid #2e7d32;
+    border-radius: 5px;
+    transition: transform 0.1s ease;
+    z-index: 3;
+}
+
+/* 敵 */
+.enemy {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: #f44336;
+    border: 2px solid #c62828;
+    border-radius: 5px;
+    z-index: 2;
+}
+
+/* 動く敵（視覚的に区別できるように） */
+.enemy-moving {
+    background: #e91e63;
+    border: 2px solid #ad1457;
+    box-shadow: 0 0 10px rgba(233, 30, 99, 0.5);
+    animation: enemyPulse 1s ease-in-out infinite;
+}
+
+@keyframes enemyPulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/* ゴール */
+.goal {
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    background: #FFD700;
+    border: 3px solid #FFA500;
+    border-radius: 50%;
+    z-index: 2;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+.status {
+    margin-top: 20px;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333;
+    min-height: 30px;
+}
+
+.status.game-over {
+    color: #f44336;
+    font-size: 1.5em;
+}
+
+.status.clear {
+    color: #4CAF50;
+    font-size: 1.5em;
+}
+
+.reset-button {
+    margin-top: 20px;
+    padding: 12px 30px;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: white;
+    background: #667eea;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.reset-button:hover {
+    background: #5568d3;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.reset-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
